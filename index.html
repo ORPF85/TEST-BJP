@@ -521,3 +521,668 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPRDF | Organization for Political Reform & Development</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar Section -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">
+                <img src="ChatGPT Image May 27, 2026, 12_05_41 AM_2.png" alt="OPRF Logo" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#blueprint" class="nav-link">Blueprint</a></li>
+                <li class="nav-item"><a href="#protocol" class="nav-link">Protocol</a></li>
+                <li class="nav-item"><a href="#manifesto" class="nav-link">Manifesto</a></li>
+                <li class="nav-item"><a href="#join" class="nav-link">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Custom Wide-Screen Welcome Banner Block -->
+    <style>
+        .welcome-hero {
+            position: relative;
+            width: 100%;
+            min-height: 85vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ee 100%);
+            display: flex;
+            align-items: center;
+            padding: 40px 8%;
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            max-width: 60%;
+            z-index: 5;
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            background: #002244;
+            color: #ffcc00;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 10px rgba(0, 34, 68, 0.15);
+        }
+
+        .welcome-container h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #002244;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .welcome-container h1 span {
+            color: #ffcc00;
+            display: block;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-description {
+            font-size: 18px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 90%;
+        }
+
+        .welcome-cta-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .welcome-btn {
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .welcome-btn-primary {
+            background: #0056b3;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+        }
+
+        .welcome-btn-primary:hover {
+            background: #002244;
+            transform: translateY(-2px);
+        }
+
+        .welcome-btn-secondary {
+            background: transparent;
+            color: #002244;
+            border: 2px solid #002244;
+        }
+
+        .welcome-btn-secondary:hover {
+            background: #002244;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .silhouette-wrapper {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            width: 35%;
+            height: 90%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .common-man-shadow {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: currentColor;
+            color: #1a2a3a;
+            mask: radial-gradient(circle at 50% 22%, currentColor 20%, transparent 21%),
+                  radial-gradient(circle at 50% 90%, currentColor 45%, transparent 46%);
+            -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='black' d='M50,15 A12,12 0 1,0 50,39 A12,12 0 1,0 50,15 Z M25,95 C25,60 32,45 50,45 C68,45 75,60 75,95 Z'/></svg>") no-repeat bottom center;
+            mask-size: contain;
+            -webkit-mask-size: contain;
+        }
+
+        .bg-circle-accent {
+            position: absolute;
+            right: -5%;
+            top: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,204,0,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        @media (max-width: 992px) {
+            .welcome-hero { padding: 80px 5%; min-height: auto; }
+            .welcome-container { max-width: 100%; text-align: center; }
+            .welcome-description { max-width: 100%; }
+            .welcome-cta-group { justify-content: center; }
+            .silhouette-wrapper { display: none; }
+        }
+    </style>
+
+    <section class="welcome-hero" id="home">
+        <div class="bg-circle-accent"></div>
+        <div class="welcome-container">
+            <span class="welcome-badge">#ViksitBharatOPRDF</span>
+            <h1>New India, <span>Developed India.</span></h1>
+            <p class="welcome-description">
+                The Organization for Political Reform & Development (OPRDF) is engineering a historic framework built for the common citizen. No identity divisions, no populist compromises—just straight, competent governance aimed at structural national growth.
+            </p>
+            <div class="welcome-cta-group">
+                <a href="#blueprint" class="welcome-btn welcome-btn-primary">Explore Blueprint</a>
+                <a href="schemes.html" class="welcome-btn welcome-btn-secondary">View Live Schemes</a>
+            </div>
+        </div>
+        <div class="silhouette-wrapper">
+            <div class="common-man-shadow"></div>
+        </div>
+    </section>
+
+    <!-- SECTION: THE SOCIO-ECONOMIC BLUEPRINT -->
+    <section class="blueprint-section" id="blueprint">
+        <h2 class="section-title">The Socio-Economic Blueprint</h2>
+        <div class="card-grid">
+            <div class="protocol-card card-blue">
+                <h3>🚀 Youth & Hyper-Employment Model</h3>
+                <p>The youth are not just voters; they are India's primary economic engine. OPRDF replaces outdated rote-learning with a localized, industry-linked technical education matrix. Our development model mandates strict fiscal incentives for labor-intensive manufacturing, green tech industries, and digital infrastructure hubs to eliminate underemployment and guarantee dignified, high-yield job markets for the new generation.</p>
+            </div>
+            <div class="protocol-card card-yellow">
+                <h3>🏥 Universal Healthcare & Sovereign Sanitation</h3>
+                <p>Health is a non-negotiable right, not a luxury. We pledge a total overhaul of community medical systems, implementing free, world-class diagnostic and tertiary healthcare grids across every district. Coinciding with health is our sovereign sanitation policy: modernizing municipal waste systems, enforcing strict automated recycling protocols, and treating waste management as a vital national security priority.</p>
+            </div>
+            <div class="protocol-card card-blue">
+                <h3>🌿 Anti-Pollution & Eco-Capitalism</h3>
+                <p>An environment that kills its citizens cannot sustain economic growth. OPRDF introduces stringent industrial emission caps, massive urban forestry initiatives, and heavy investments in clean energy infrastructure. We will penalize ecocide while subsidizing businesses that adopt carbon-neutral operations, ensuring India breathes clean air while moving forward economically.</p>
+            </div>
+            <div class="protocol-card card-blue-dark">
+                <h3>📊 Strategic Budget Allocation</h3>
+                <p>No more opaque financing or populist freebies that bleed the treasury. OPRDF introduces an algorithmic, data-driven budget allocation protocol. Funds are transparently distributed based on region-specific socioeconomic deficits, ensuring physical infrastructure, digital connectivity, and public services receive precise, zero-waste funding.</p>
+            </div>
+            <div class="protocol-card card-blue">
+                <h3>⚖️ Ironclad Law & Order</h3>
+                <p>True freedom requires absolute safety. We will modernize our police forces, eliminating political interference from law enforcement and replacing it with specialized, technologically advanced investigative branches. Fast-track judicial processes will guarantee that justice is swift, objective, and blind to wealth or status.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: THE CONSTITUTIONAL & GOVERNANCE PROTOCOL -->
+    <section class="protocol-section" id="protocol">
+        <h2 class="section-title">The Constitutional & Governance Protocol</h2>
+        <div class="card-grid cols-2">
+            <div class="protocol-card card-yellow">
+                <h3>🎓 Statutory Qualifications to Run Government</h3>
+                <p>To govern a nuclear-armed nation of over a billion people, enthusiasm is not enough; competence is mandatory. OPRDF will fight to codify strict, constitutional prerequisites for anyone seeking public office:</p>
+                <ul>
+                    <li><strong>Educational & Administrative Benchmarks:</strong> Candidates must possess verified educational degrees and pass standard constitutional, economic, and civil administrative literacy certifications.</li>
+                    <li><strong>Flawless Judicial Record:</strong> Any individual with formal charges framed against them for serious criminal, economic, or communal offenses will be permanently barred from contesting elections.</li>
+                </ul>
+            </div>
+            <div class="protocol-card card-blue">
+                <h3>🔄 The Right to Recall & Public Approval Rate</h3>
+                <p>Power belongs to the citizens, not the politicians. We introduce a legally structured, constitutionally backed Right to Recall mechanism driven by a real-time Rate of Approval:</p>
+                <ul>
+                    <li><strong>The Continuous Mandate:</strong> Elected representatives must maintain a transparent, ongoing digital and physical approval rating verified by an independent electoral authority.</li>
+                    <li><strong>The Threshold:</strong> If an official's public approval rating drops below 40% at any point after their first year in office, a secure, local referendum is automatically triggered.</li>
+                    <li><strong>The Replacement:</strong> If a simple majority of the constituency votes "Yes" on the referendum, the member is instantly recalled and removed from office, forcing a fresh, clean election.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Party Manifesto & Operations Desk Section -->
+    <section class="manifesto-section" id="manifesto">
+        <h2 class="section-title">Party Manifesto & Operations Desk</h2>
+        <div class="manifesto-stack">
+            <div class="desk-card border-blue">
+                <h3>Propaganda & Ideology</h3>
+                <p>Our core platform stands on dismantling historic socio-economic divides. We focus purely on localized development assets, physical infrastructure updates across India, and unified language implementation for official transaction clarity.</p>
+            </div>
+            <div class="desk-card border-yellow">
+                <h3>Joining Process</h3>
+                <p>We are mobilizing a youth-led administrative infrastructure. Registration requires verified civic identification and a formal pledge to uphold strict performance standards and public accountability metrics.</p>
+            </div>
+            <div class="desk-card border-blue">
+                <h3>Official Communication Channels</h3>
+                <p>Connect directly with local leadership hubs and coordinate regional reform campaigns via our official channels:</p>
+                <div class="social-box" style="margin-bottom: 15px;">
+                    <a href="schemes.html" class="social-btn" style="background: #ffcc00; color: #002244; border-color: #ffcc00; font-weight: 800; width: 100%; display: block; text-align: center;">🏛️ View Public Schemes & Yojnas</a>
+                </div>
+                <div class="social-box">
+                    <a href="https://x.com/OPRF85" target="_blank" class="social-btn"><i class="fab fa-x-twitter"></i> X / Twitter</a>
+                    <a href="https://www.instagram.com/oprf85?igsh=MXFiMnk3N3o0d3JrNw==" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/share/1HvWFKggaj/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join The Movement Contact Form Section -->
+    <section class="contact-section" id="join">
+        <div class="contact-container">
+            <h2 class="section-title">Join The OPRDF Movement</h2>
+            <p class="contact-subtitle">Submit your details below to sync with regional administrative hubs.</p>
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="6502e3ec-3cf4-4b66-96d8-5977c6d77f4b">
+                <input type="hidden" name="subject" value="New OPRDF Movement Application!">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="form-group">
+                    <input type="text" name="Full Name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email Address" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Voter Constituency" placeholder="Voter Constituency / Region" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="Contribution Plan" placeholder="How would you like to contribute to the progress?" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION: DYNAMIC NATIONAL FOOTPRINTS MATRIX
+         ========================================== -->
+    <style>
+        .footprints-section {
+            background: #ea5b1b; 
+            background-image: linear-gradient(rgba(234, 91, 27, 0.92), rgba(234, 91, 27, 0.92)), url('https://upload.wikimedia.org/wikipedia/commons/4/41/India_map_blank.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 80px 4%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            position: relative;
+        }
+
+        .footprints-title-area {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .footprints-title-area h2 {
+            font-size: 52px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+        }
+
+        .footprints-title-area p {
+            color: #0d0c16;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .profile-display-card {
+            background: #09192e;
+            border-radius: 18px;
+            padding: 40px 25px 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+        }
+
+        .cm-portrait-container {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 35px;
+        }
+
+        .cm-image-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #ffcc00;
+            margin: 0 auto 25px auto;
+            background: #102a45; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .cm-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cm-name-label {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .cm-designation {
+            font-size: 13px;
+            color: #ffcc00;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .profile-stats-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .stat-metric-box {
+            background: #051020;
+            padding: 16px 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 85px;
+        }
+
+        .stat-metric-box span {
+            display: block;
+            font-size: 9px;
+            color: #8fa0b5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .stat-metric-box strong {
+            display: block;
+            font-size: 24px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .stat-metric-box .regime-text {
+            font-size: 13px;
+            color: #ffcc00;
+            font-weight: 800;
+        }
+
+        .map-selection-interface {
+            background: #09192e;
+            border-radius: 18px;
+            padding: 35px 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .interface-instruction {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8fa0b5;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .states-interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .states-interactive-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .states-interactive-grid::-webkit-scrollbar-track {
+            background: #051020;
+            border-radius: 4px;
+        }
+        .states-interactive-grid::-webkit-scrollbar-thumb {
+            background: #1b355a;
+            border-radius: 4px;
+        }
+
+        .state-clickable-card {
+            background: #0d2543;
+            padding: 18px 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 14px;
+            font-weight: 600;
+            color: #b1c4da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            min-height: 55px;
+        }
+
+        .state-clickable-card:hover {
+            background: #12335c;
+            color: #ffffff;
+        }
+
+        .state-clickable-card.active-state {
+            background: #ffcc00;
+            color: #051020;
+            font-weight: 800;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.35);
+        }
+
+        @media (max-width: 1150px) {
+            .states-interactive-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-layout { grid-template-columns: 1fr; gap: 30px; }
+            .profile-display-card { min-height: auto; }
+            .states-interactive-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .states-interactive-grid { grid-template-columns: repeat(2, 1fr); }
+            .footprints-title-area h2 { font-size: 38px; }
+        }
+    </style>
+
+    <section class="footprints-section" id="footprints">
+        <div class="footprints-title-area">
+            <h2>Our Footprints</h2>
+            <p>National Political Overview</p>
+        </div>
+
+        <div class="dashboard-layout">
+            <!-- Left Dynamic Display Panel Component -->
+            <div class="profile-display-card" id="displayCard">
+                <div class="cm-portrait-container">
+                    <div class="cm-image-frame" id="imageFrame">
+                        <img id="cmImage" src="" alt="Leader Portrait" crossorigin="anonymous">
+                    </div>
+                    <div class="cm-name-label" id="cmName">-</div>
+                    <div class="cm-designation" id="stateLabel">-</div>
+                </div>
+
+                <!-- Stats Boxes -->
+                <div class="profile-stats-grid">
+                    <div class="stat-metric-box">
+                        <span>Governing Regime</span>
+                        <strong id="partyLabel" class="regime-text">-</strong>
+                    </div>
+                    <div class="stat-metric-box">
+                        <span>Lok Sabha Seats</span>
+                        <strong id="lsSeats">-</strong>
+                    </div>
+                    <div class="stat-metric-box">
+                        <span>Rajya Sabha Seats</span>
+                        <strong id="rsSeats">-</strong>
+                    </div>
+                    <div class="stat-metric-box">
+                        <span>Assembly MLAs</span>
+                        <strong id="mlaSeats">-</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Controls Grid -->
+            <div class="map-selection-interface">
+                <div class="interface-instruction">
+                    ▶ CLICK ANY STATE BELOW TO VIEW HISTORICAL PARTY DATA & STATS
+                </div>
+                
+                <div class="states-interactive-grid">
+                    <div class="state-clickable-card active-state" id="btn-UP" onclick="loadState('UP', this)">Uttar Pradesh</div>
+                    <div class="state-clickable-card" id="btn-MH" onclick="loadState('MH', this)">Maharashtra</div>
+                    <div class="state-clickable-card" id="btn-WB" onclick="loadState('WB', this)">West Bengal</div>
+                    <div class="state-clickable-card" id="btn-BR" onclick="loadState('BR', this)">Bihar</div>
+                    <div class="state-clickable-card" id="btn-TN" onclick="loadState('TN', this)">Tamil Nadu</div>
+                    <div class="state-clickable-card" id="btn-AP" onclick="loadState('AP', this)">Andhra Pradesh</div>
+                    <div class="state-clickable-card" id="btn-MP" onclick="loadState('MP', this)">Madhya Pradesh</div>
+                    <div class="state-clickable-card" id="btn-KA" onclick="loadState('KA', this)">Karnataka</div>
+                    <div class="state-clickable-card" id="btn-GJ" onclick="loadState('GJ', this)">Gujarat</div>
+                    <div class="state-clickable-card" id="btn-RJ" onclick="loadState('RJ', this)">Rajasthan</div>
+                    <div class="state-clickable-card" id="btn-OR" onclick="loadState('OR', this)">Odisha</div>
+                    <div class="state-clickable-card" id="btn-KL" onclick="loadState('KL', this)">Kerala</div>
+                    <div class="state-clickable-card" id="btn-TS" onclick="loadState('TS', this)">Telangana</div>
+                    <div class="state-clickable-card" id="btn-AS" onclick="loadState('AS', this)">Assam</div>
+                    <div class="state-clickable-card" id="btn-JH" onclick="loadState('JH', this)">Jharkhand</div>
+                    <div class="state-clickable-card" id="btn-PB" onclick="loadState('PB', this)">Punjab</div>
+                    <div class="state-clickable-card" id="btn-CT" onclick="loadState('CT', this)">Chhattisgarh</div>
+                    <div class="state-clickable-card" id="btn-HR" onclick="loadState('HR', this)">Haryana</div>
+                    <div class="state-clickable-card" id="btn-JK" onclick="loadState('JK', this)">Jammu & Kashmir</div>
+                    <div class="state-clickable-card" id="btn-UK" onclick="loadState('UK', this)">Uttarakhand</div>
+                    <div class="state-clickable-card" id="btn-HP" onclick="loadState('HP', this)">Himachal Pradesh</div>
+                    <div class="state-clickable-card" id="btn-GA" onclick="loadState('GA', this)">Goa</div>
+                    <div class="state-clickable-card" id="btn-TR" onclick="loadState('TR', this)">Tripura</div>
+                    <div class="state-clickable-card" id="btn-ML" onclick="loadState('ML', this)">Meghalaya</div>
+                    <div class="state-clickable-card" id="btn-MN" onclick="loadState('MN', this)">Manipur</div>
+                    <div class="state-clickable-card" id="btn-NL" onclick="loadState('NL', this)">Nagaland</div>
+                    <div class="state-clickable-card" id="btn-SK" onclick="loadState('SK', this)">Sikkim</div>
+                    <div class="state-clickable-card" id="btn-MZ" onclick="loadState('MZ', this)">Mizoram</div>
+                    <div class="state-clickable-card" id="btn-AR" onclick="loadState('AR', this)">Arunachal Pradesh</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const comprehensiveIndiaMap = {
+            UP: { name: "Shri Yogi Adityanath", state: "Uttar Pradesh", party: "BJP (NDA)", ls: "80", rs: "31", mla: "403", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Yogi_Adityanath_Official_Portrait_2022.jpg/480px-Yogi_Adityanath_Official_Portrait_2022.jpg" },
+            MH: { name: "Shri Devendra Fadnavis", state: "Maharashtra", party: "BJP (NDA)", ls: "48", rs: "19", mla: "288", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Devendra_Fadnavis_clean_portrait.jpg/480px-Devendra_Fadnavis_clean_portrait.jpg" },
+            WB: { name: "Smt. Mamata Banerjee", state: "West Bengal", party: "AITC (INDIA)", ls: "42", rs: "16", mla: "294", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mamata_Banerjee_World_Economic_Forum_2018.jpg/480px-Mamata_Banerjee_World_Economic_Forum_2018.jpg" },
+            BR: { name: "Shri Nitish Kumar", state: "Bihar", party: "JD(U) (NDA)", ls: "40", rs: "16", mla: "243", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Nitish_Kumar_Portrait.jpg/480px-Nitish_Kumar_Portrait.jpg" },
+            TN: { name: "Shri M. K. Stalin", state: "Tamil Nadu", party: "DMK (INDIA)", ls: "39", rs: "18", mla: "234", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/M._K._Stalin.jpg/480px-M._K._Stalin.jpg" },
+            AP: { name: "Shri N. Chandrababu Naidu", state: "Andhra Pradesh", party: "TDP (NDA)", ls: "25", rs: "11", mla: "175", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/N_Chandrababu_Naidu.jpg/480px-N_Chandrababu_Naidu.jpg" },
+            MP: { name: "Shri Mohan Yadav", state: "Madhya Pradesh", party: "BJP (NDA)", ls: "29", rs: "11", mla: "230", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Dr._Mohan_Yadav_Official_Portrait.jpg/480px-Dr._Mohan_Yadav_Official_Portrait.jpg" },
+            KA: { name: "Shri Siddaramaiah", state: "Karnataka", party: "INC (INDIA)", ls: "28", rs: "12", mla: "224", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Siddaramaiah_2023.jpg/480px-Siddaramaiah_2023.jpg" },
+            GJ: { name: "Shri Bhupendra Patel", state: "Gujarat", party: "BJP (NDA)", ls: "26", rs: "11", mla: "182", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Bhupendrabhai_Patel_Portrait.jpg/480px-Bhupendrabhai_Patel_Portrait.jpg" },
+            RJ: { name: "Shri Bhajan Lal Sharma", state: "Rajasthan", party: "BJP (NDA)", ls: "25", rs: "10", mla: "200", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bhajan_Lal_Sharma_Portrait.jpg/480px-Bhajan_Lal_Sharma_Portrait.jpg" },
+            OR: { name: "Shri Mohan Charan Majhi", state: "Odisha", party: "BJP (NDA)", ls: "21", rs: "10", mla: "147", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mohan_Charan_Majhi.jpg/480px-Mohan_Charan_Majhi.jpg" },
+            KL: { name: "Shri Pinarayi Vijayan", state: "Kerala", party: "CPI(M)", ls: "20", rs: "9", mla: "140", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pinarayi_Vijayan_Official.jpg/480px-Pinarayi_Vijayan_Official.jpg" },
+            TS: { name: "Shri A. Revanth Reddy", state: "Telangana", party: "INC (INDIA)", ls: "17", rs: "7", mla: "119", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Anumula_Revanth_Reddy.jpg/480px-Anumula_Revanth_Reddy.jpg" },
+            AS: { name: "Shri Himanta Biswa Sarma", state: "Assam", party: "BJP (NDA)", ls: "14", rs: "7", mla: "126", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Himanta_Biswa_Sarma_in_2021.jpg/480px-Himanta_Biswa_Sarma_in_2021.jpg" },
+            JH: { name: "Shri Hemant Soren", state: "Jharkhand", party: "JMM (INDIA)", ls: "14", rs: "6", mla: "81", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hemant_Soren_Official.jpg/480px-Hemant_Soren_Official.jpg" },
+            PB: { name: "Shri Bhagwant Singh Mann", state: "Punjab", party: "AAP", ls: "13", rs: "7", mla: "117", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Bhagwant_Mann_2022.jpg/480px-Bhagwant_Mann_2022.jpg" },
+            CT: { name: "Shri Vishnu Deo Sai", state: "Chhattisgarh", party: "BJP (NDA)", ls: "11", rs: "5", mla: "90", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Vishnu_Deo_Sai.jpg/480px-Vishnu_Deo_Sai.jpg" },
+            HR: { name: "Shri Nayab Singh Saini", state: "Haryana", party: "BJP (NDA)", ls: "10", rs: "5", mla: "90", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Nayab_Singh_Saini.jpg/480px-Nayab_Singh_Saini.jpg" },
+            JK: { name: "Shri Omar Abdullah", state: "Jammu & Kashmir", party: "JKNC", ls: "5", rs: "4", mla: "90", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Omar_Abdullah_WEF_2010.jpg/480px-Omar_Abdullah_WEF_2010.jpg" },
+            UK: { name: "Shri Pushkar Singh Dhami", state: "Uttarakhand", party: "BJP (NDA)", ls: "5", rs: "3", mla: "70", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Pushkar_Singh_Dhami_Official_Portrait.jpg/480px-Pushkar_Singh_Dhami_Official_Portrait.jpg" },
+            HP: { name: "Shri Sukhvinder Singh Sukhu", state: "Himachal Pradesh", party: "INC (INDIA)", ls: "4", rs: "3", mla: "68", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Sukhvinder_Singh_Sukhu.jpg/480px-Sukhvinder_Singh_Sukhu.jpg" },
+            GA: { name: "Shri Pramod Sawant", state: "Goa", party: "BJP (NDA)", ls: "2", rs: "1", mla: "40", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Pramod_Sawant_Official_Portrait.jpg/480px-Pramod_Sawant_Official_Portrait.jpg" },
+            TR: { name: "Dr. Manik Saha", state: "Tripura", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Dr._Manik_Saha.jpg/480px-Dr._Manik_Saha.jpg" },
+            ML: { name: "Shri Conrad Sangma", state: "Meghalaya", party: "NPP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Conrad_Sangma_2019.jpg/480px-Conrad_Sangma_2019.jpg" },
+            MN: { name: "Shri N. Biren Singh", state: "Manipur", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/N._Biren_Singh_Portrait.jpg/480px-N._Biren_Singh_Portrait.jpg" },
+            NL: { name: "Shri Neiphiu Rio", state: "Nagaland", party: "NDPP (NDA)", ls: "1", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Neiphiu_Rio_Portrait.jpg/480px-Neiphiu_Rio_Portrait.jpg" },
+            SK: { name: "Shri Prem Singh Tamang", state: "Sikkim", party: "SKM (NDA)", ls: "1", rs: "1", mla: "32", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Prem_Singh_Tamang.jpg/480px-Prem_Singh_Tamang.jpg" },
+            MZ: { name: "Shri Lalduhoma", state: "Mizoram", party: "ZPM", ls: "1", rs: "1", mla: "40", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lalduhoma.jpg/480px-Lalduhoma.jpg" },
+            AR: { name: "Shri Pema Khandu", state: "Arunachal Pradesh", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Pema_Khandu_Official_Portrait.jpg/480px-Pema_Khandu_Official_Portrait.jpg" }
+        };
+
+        function loadState(stateId, element) {
+            document.querySelectorAll('.state-clickable-card').forEach(card => card.classList.remove('active-state'));
+            
+            if (element) {
+                element.classList.add('active-state');
+            } else {
+                const structuralBtn = document.getElementById('btn-' + stateId);
+                if (structuralBtn) structuralBtn.classList.add('active-state');
+            }
+
+            const data = comprehensiveIndiaMap[stateId];
+            if(data) {
+                document.getElementById('cmName').innerText = data.name;
+                document.getElementById('stateLabel').innerText = data.state;
+                document.getElementById('partyLabel').innerText = data.party;
+                document.getElementById('lsSeats').innerText = data.ls;
+                document.getElementById('rsSeats').innerText = data.rs;
+                document.getElementById('mlaSeats').innerText = data.mla;
+
+                const imgEl = document.getElementById('cmImage');
+                imgEl.src = data.img;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState('UP', document.getElementById('btn-UP'));
+        });
+    </script>
+</body>
+</html>
