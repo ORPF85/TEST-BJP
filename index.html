@@ -11,6 +11,13 @@
         .news-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .state-clickable-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .active-state {
+            border-color: #ea580c !important;
+            background-color: #fff7ed !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -44,9 +51,8 @@
             
             <nav class="hidden md:flex space-x-6 font-medium text-gray-700">
                 <a href="#" class="text-orange-600 border-b-2 border-orange-600 pb-1">Home</a>
+                <a href="#state-dashboard" class="hover:text-orange-600 transition">State Metrics</a>
                 <a href="#media-center" class="hover:text-orange-600 transition">Media Hub</a>
-                <a href="#stats" class="hover:text-orange-600 transition">Our Impact</a>
-                <a href="#leadership" class="hover:text-orange-600 transition">Leadership</a>
                 <a href="#join" class="hover:text-orange-600 transition">Campaigns</a>
             </nav>
 
@@ -104,6 +110,129 @@
         <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center z-20 transition shadow-md">
             <i class="fa-solid fa-chevron-right text-lg"></i>
         </button>
+    </section>
+
+    <!-- NEW FEATURE: Integrated State Analytics & Leadership Dashboard -->
+    <section id="state-dashboard" class="bg-gray-100 py-12 border-b">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold text-gray-900">State Profiles & Parliamentary Metrics</h2>
+                <p class="text-gray-500 text-sm mt-1">Real-time leadership demographics and regional seat breakdowns</p>
+            </div>
+
+            <!-- Dynamic Aggregate Metric Counters Layout Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-orange-500">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Total Lok Sabha Seats</span>
+                    <span id="totalLS" class="text-2xl font-black text-gray-800 block mt-1">0</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-blue-500">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Total Rajya Sabha Seats</span>
+                    <span id="totalRS" class="text-2xl font-black text-gray-800 block mt-1">0</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-green-500">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Total Assembly Seats</span>
+                    <span id="totalMLA" class="text-2xl font-black text-gray-800 block mt-1">0</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-purple-500">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Tracked States</span>
+                    <span id="trackedStatesCount" class="text-2xl font-black text-gray-800 block mt-1">0</span>
+                </div>
+            </div>
+
+            <!-- Split Interface Work Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Navigation Panel & Data Search -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm flex flex-col h-[520px]">
+                    <div class="relative mb-4">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                            <i class="fa-solid fa-filter text-xs"></i>
+                        </span>
+                        <input type="text" id="dashboardSearch" oninput="filterDashboardStates()" 
+                               class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm bg-gray-50" 
+                               placeholder="Quick filter states...">
+                    </div>
+
+                    <!-- Scrollable Selection Grid Container -->
+                    <div id="dashboardStatesGrid" class="overflow-y-auto pr-1 space-y-2 flex-1">
+                        <!-- Clickable targeting items generated on page initial configurations -->
+                        <div id="btn-UP" onclick="loadState('UP', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Uttar Pradesh</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-UK" onclick="loadState('UK', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Uttarakhand</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-HP" onclick="loadState('HP', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Himachal Pradesh</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-GA" onclick="loadState('GA', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Goa</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-TR" onclick="loadState('TR', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Tripura</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-ML" onclick="loadState('ML', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Meghalaya</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-MN" onclick="loadState('MN', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Manipur</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-NL" onclick="loadState('NL', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Nagaland</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-SK" onclick="loadState('SK', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Sikkim</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-MZ" onclick="loadState('MZ', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Mizoram</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                        <div id="btn-AR" onclick="loadState('AR', this)" class="state-clickable-card p-3 border rounded-xl cursor-pointer hover:bg-gray-50 flex justify-between items-center font-medium text-sm">
+                            <span>Arunachal Pradesh</span><i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Display Dashboard Container Profile Display Panel -->
+                <div id="allianceContainerCard" class="lg:col-span-2 bg-white rounded-2xl shadow-sm border-t-8 border-gray-400 transition-all duration-300 p-6 flex flex-col md:flex-row gap-6 items-center md:items-start h-auto lg:h-[520px]">
+                    <div class="w-48 h-60 bg-gray-100 rounded-xl overflow-hidden shadow-inner flex-shrink-0 relative">
+                        <img id="cmImage" src="" alt="Chief Minister Profile" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 w-full flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2 mb-2">
+                                <span id="stateLabel" class="text-xs font-black uppercase bg-gray-100 px-2.5 py-1 rounded text-gray-600 tracking-wider">State Name</span>
+                                <span id="allianceBadge" class="text-xs font-bold text-white px-2.5 py-1 rounded tracking-wide">Alliance</span>
+                            </div>
+                            <h3 id="cmName" class="text-2xl font-black text-gray-900 mb-1">Chief Minister Name</h3>
+                            <p class="text-sm font-semibold text-gray-500 flex items-center gap-1.5 mb-6">
+                                <i class="fa-solid fa-building-flag text-orange-500"></i> Governing Party: <span id="partyLabel" class="text-gray-800 font-bold">Party Line</span>
+                            </p>
+                            
+                            <!-- Detailed Metric Row Output Parameters -->
+                            <div class="grid grid-cols-3 gap-4 border-t pt-6 bg-gray-50 p-4 rounded-xl">
+                                <div class="text-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wide block">Lok Sabha</span>
+                                    <span id="lsSeats" class="text-xl font-black text-gray-800 block mt-1">0</span>
+                                </div>
+                                <div class="text-center border-x px-2">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wide block">Rajya Sabha</span>
+                                    <span id="rsSeats" class="text-xl font-black text-gray-800 block mt-1">0</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wide block">Assembly (MLA)</span>
+                                    <span id="mlaSeats" class="text-xl font-black text-gray-800 block mt-1">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 md:mt-0 text-xs text-gray-400 italic flex items-center gap-1">
+                            <i class="fa-solid fa-circle-info"></i> Quantitative dashboard representation parameters.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- Upgraded Media Center Section with Search & Filtering Hooks -->
@@ -178,7 +307,7 @@
                 </div>
             </div>
 
-            <!-- News Card 3: Event (Added to showcase different categories) -->
+            <!-- News Card 3: Event -->
             <div class="news-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl flex flex-col transform opacity-100 scale-100" data-category="event">
                 <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=500');"></div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
@@ -204,7 +333,7 @@
         </div>
     </main>
 
-    <!-- JavaScript Logic Engines (Slider + Live Search Filters) -->
+    <!-- JavaScript Logic Engines -->
     <script>
         // --- SECTION A: HERO SLIDER ENGINE ---
         let currentSlideIndex = 0;
@@ -229,7 +358,6 @@
             showSlide(currentSlideIndex);
         }
 
-        // Auto-advance slides every 6 seconds
         setInterval(nextSlide, 6000);
 
 
@@ -239,17 +367,14 @@
         function setActiveCategory(category, buttonElement) {
             selectedCategory = category;
             
-            // Revert all filter action buttons back to default look
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('bg-orange-600', 'text-white', 'shadow-sm');
                 btn.classList.add('bg-gray-200', 'text-gray-700');
             });
 
-            // Brighten active button
             buttonElement.classList.remove('bg-gray-200', 'text-gray-700');
             buttonElement.classList.add('bg-orange-600', 'text-white', 'shadow-sm');
 
-            // Trigger structural sync
             filterNews();
         }
 
@@ -263,25 +388,20 @@
                 const headlineText = card.querySelector('.card-title').innerText.toLowerCase();
                 const paragraphText = card.querySelector('p').innerText.toLowerCase();
 
-                // Multi-parameter conditions mapping check
                 const matchesCategory = (selectedCategory === 'all' || cardCategory === selectedCategory);
                 const matchesSearch = (headlineText.includes(searchQuery) || paragraphText.includes(searchQuery));
 
                 if (matchesCategory && matchesSearch) {
-                    // Make the card visible instantly to measure layout structure
                     card.style.display = 'flex';
-                    // Trigger dynamic styling attributes asynchronously to support animations
                     setTimeout(() => {
                         card.classList.remove('opacity-0', 'scale-95');
                         card.classList.add('opacity-100', 'scale-100');
                     }, 20);
                     visibleCount++;
                 } else {
-                    // Trigger fade and scale down reduction transition properties
                     card.classList.remove('opacity-100', 'scale-100');
                     card.classList.add('opacity-0', 'scale-95');
                     
-                    // Delay actual CSS element removal until visual transitions conclude
                     setTimeout(() => {
                         if (card.classList.contains('opacity-0')) {
                             card.style.display = 'none';
@@ -290,7 +410,6 @@
                 }
             });
 
-            // Monitor matches to toggle custom zero-result messaging layouts
             const noResultsMsg = document.getElementById('noResults');
             if (visibleCount === 0) {
                 noResultsMsg.classList.remove('hidden');
@@ -298,6 +417,107 @@
                 noResultsMsg.classList.add('hidden');
             }
         }
+
+
+        // --- SECTION C: INTEGRATED NATIONAL MAP DATA OBJECTS ---
+        const comprehensiveIndiaMap = {
+            UP: { name: "Shri Yogi Adityanath", state: "Uttar Pradesh", party: "BJP (NDA)", ls: "80", rs: "31", mla: "403", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Yogi_Adityanath_Official_Portrait_2022.jpg/480px-Yogi_Adityanath_Official_Portrait_2022.jpg" },
+            UK: { name: "Shri Pushkar Singh Dhami", state: "Uttarakhand", party: "BJP (NDA)", ls: "5", rs: "3", mla: "70", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pushkar_Singh_Dhami_Cabinet_Meeting_Portrait.jpg/480px-Pushkar_Singh_Dhami_Cabinet_Meeting_Portrait.jpg" },
+            HP: { name: "Shri Sukhvinder Singh Sukhu", state: "Himachal Pradesh", party: "INC (INDIA)", ls: "4", rs: "3", mla: "68", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Sukhvinder_Singh_Sukhu_Official.jpg/480px-Sukhvinder_Singh_Sukhu_Official.jpg" },
+            GA: { name: "Dr. Pramod Sawant", state: "Goa", party: "BJP (NDA)", ls: "2", rs: "1", mla: "40", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Pramod_Sawant_Official_Portrait.jpg/480px-Pramod_Sawant_Official_Portrait.jpg" },
+            TR: { name: "Dr. Manik Saha", state: "Tripura", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Dr._Manik_Saha_Official_Portrait.jpg/480px-Dr._Manik_Saha_Official_Portrait.jpg" },
+            ML: { name: "Shri Conrad Sangma", state: "Meghalaya", party: "NPP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Conrad_Sangma_2019.jpg/480px-Conrad_Sangma_2019.jpg" },
+            MN: { name: "Shri N. Biren Singh", state: "Manipur", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/N._Biren_Singh_Official.jpg/480px-N._Biren_Singh_Official.jpg" },
+            NL: { name: "Shri Neiphiu Rio", state: "Nagaland", party: "NDPP (NDA)", ls: "1", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Neiphiu_Rio_Portrait.jpg/480px-Neiphiu_Rio_Portrait.jpg" },
+            SK: { name: "Shri Prem Singh Tamang", state: "Sikkim", party: "SKM (NDA)", ls: "1", rs: "1", mla: "32", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Prem_Singh_Tamang_Official_2019.jpg/480px-Prem_Singh_Tamang_Official_2019.jpg" },
+            MZ: { name: "Shri Lalduhoma", state: "Mizoram", party: "ZPM (Regional)", ls: "1", rs: "1", mla: "40", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Lalduhoma_Official_Portrait.jpg/480px-Lalduhoma_Official_Portrait.jpg" },
+            AR: { name: "Shri Pema Khandu", state: "Arunachal Pradesh", party: "BJP (NDA)", ls: "2", rs: "1", mla: "60", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Pema_Khandu_Official_2021.jpg/480px-Pema_Khandu_Official_2021.jpg" }
+        };
+
+        function loadState(stateKey, element) {
+            const data = comprehensiveIndiaMap[stateKey];
+            if (!data) return;
+
+            // Target DOM Nodes and update inner contents
+            document.getElementById("cmName").innerText = data.name;
+            document.getElementById("stateLabel").innerText = data.state;
+            document.getElementById("partyLabel").innerText = data.party;
+            document.getElementById("lsSeats").innerText = data.ls;
+            document.getElementById("rsSeats").innerText = data.rs;
+            document.getElementById("mlaSeats").innerText = data.mla;
+
+            // Handle Profile Image Rendering
+            const imgElement = document.getElementById("cmImage");
+            imgElement.src = data.img;
+            imgElement.alt = `${data.name} - ${data.state}`;
+
+            // Reset active state class configurations on navigation tabs
+            document.querySelectorAll(".state-clickable-card").forEach(card => card.classList.remove("active-state"));
+
+            if (element) {
+                element.classList.add("active-state");
+            } else {
+                const activeCard = document.getElementById(`btn-${stateKey}`);
+                if (activeCard) activeCard.classList.add("active-state");
+            }
+
+            // Alliance Border and Badge Color Coding Micro-Interactions
+            const containerCard = document.getElementById("allianceContainerCard");
+            const badge = document.getElementById("allianceBadge");
+            const partyUpper = data.party.toUpperCase();
+
+            if (partyUpper.includes("NDA")) {
+                containerCard.style.borderColor = "#f97316"; // Orange
+                badge.innerText = "NDA Alliance";
+                badge.className = "text-xs font-bold text-white px-2.5 py-1 rounded tracking-wide bg-orange-500";
+            } else if (partyUpper.includes("INDIA")) {
+                containerCard.style.borderColor = "#2563eb"; // Blue
+                badge.innerText = "INDIA Alliance";
+                badge.className = "text-xs font-bold text-white px-2.5 py-1 rounded tracking-wide bg-blue-600";
+            } else {
+                containerCard.style.borderColor = "#6b7280"; // Gray
+                badge.innerText = "Regional / Unaligned";
+                badge.className = "text-xs font-bold text-white px-2.5 py-1 rounded tracking-wide bg-gray-500";
+            }
+        }
+
+        // Live Dashboard List Input Filter
+        function filterDashboardStates() {
+            const query = document.getElementById("dashboardSearch").value.toLowerCase().trim();
+            Object.keys(comprehensiveIndiaMap).forEach(key => {
+                const card = document.getElementById(`btn-${key}`);
+                if (card) {
+                    const stateName = comprehensiveIndiaMap[key].state.toLowerCase();
+                    const cmName = comprehensiveIndiaMap[key].name.toLowerCase();
+                    if (stateName.includes(query) || cmName.includes(query)) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        // Auto-Calculate Global Aggregate Analytics Counters On Load Execution
+        document.addEventListener("DOMContentLoaded", () => {
+            let totalLS = 0, totalRS = 0, totalMLA = 0;
+            const stateKeys = Object.keys(comprehensiveIndiaMap);
+
+            stateKeys.forEach(key => {
+                const data = comprehensiveIndiaMap[key];
+                totalLS += parseInt(data.ls) || 0;
+                totalRS += parseInt(data.rs) || 0;
+                totalMLA += parseInt(data.mla) || 0;
+            });
+
+            document.getElementById("totalLS").innerText = totalLS;
+            document.getElementById("totalRS").innerText = totalRS;
+            document.getElementById("totalMLA").innerText = totalMLA;
+            document.getElementById("trackedStatesCount").innerText = stateKeys.length;
+
+            // Load initial tracking state cleanly
+            loadState('UP', null);
+        });
     </script>
 </body>
 </html>
