@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizational Portal Home</title>
-    <!-- Tailwind CSS for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- 1. TOP UTILITY BAR -->
     <div class="bg-orange-600 text-white text-sm py-2 px-4 flex justify-between items-center">
         <div class="flex space-x-4">
             <a href="#" class="hover:underline"><i class="fa-solid fa-language"></i> English / हिन्दी</a>
@@ -25,10 +22,8 @@
         </div>
     </div>
 
-    <!-- 2. MAIN NAVIGATION HEADER -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo / Brand Placeholder -->
             <div class="flex items-center space-x-3">
                 <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow">
                     LOGO
@@ -39,45 +34,67 @@
                 </div>
             </div>
             
-            <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-6 font-medium text-gray-700">
                 <a href="#" class="text-orange-600 border-b-2 border-orange-600 pb-1">Home</a>
-                <a href="#" class="hover:text-orange-600 transition">About Us</a>
-                <a href="#" class="hover:text-orange-600 transition">Leadership</a>
-                <a href="#" class="hover:text-orange-600 transition">Media Hub</a>
-                <a href="#" class="hover:text-orange-600 transition">Campaigns</a>
+                <a href="#media-center" class="hover:text-orange-600 transition">Media Hub</a>
+                <a href="#stats" class="hover:text-orange-600 transition">Our Impact</a>
+                <a href="#leadership" class="hover:text-orange-600 transition">Leadership</a>
+                <a href="#join" class="hover:text-orange-600 transition">Campaigns</a>
             </nav>
 
-            <!-- Action Button -->
             <div>
-                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full shadow transition transform hover:scale-105 inline-block text-sm uppercase">
+                <a href="#join" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-full shadow transition transform hover:scale-105 inline-block text-sm uppercase">
                     Join Movement
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- 3. HERO/BANNER SECTION -->
-    <section class="relative bg-gradient-to-r class bg-slate-900 text-white overflow-hidden min-h-[450px] flex items-center">
-        <!-- Overlay background graphic or image placeholder -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=2070');"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-orange-600/80 to-transparent"></div>
-        
-        <div class="container mx-auto px-4 relative z-10 py-12">
-            <div class="max-w-2xl">
-                <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 uppercase rounded tracking-wider">Latest Update</span>
-                <h1 class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">Building a Stronger, More Prosperous Nation Together</h1>
-                <p class="mt-4 text-lg text-gray-100">Explore our latest initiatives, developmental manifestos, and vision blueprints driving national growth across every sector.</p>
-                <div class="mt-8 flex space-x-4">
-                    <a href="#" class="bg-white text-orange-600 font-bold px-6 py-3 rounded shadow hover:bg-gray-100 transition">Read Manifesto</a>
-                    <a href="#" class="border-2 border-white text-white font-bold px-6 py-3 rounded hover:bg-white/10 transition">Watch Live Speeches</a>
+    <section class="relative bg-slate-950 text-white h-[480px] overflow-hidden">
+        <div id="slider-container" class="relative w-full h-full">
+            
+            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=2070');"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
+                <div class="container mx-auto px-4 relative z-10 py-12">
+                    <div class="max-w-2xl">
+                        <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 uppercase rounded tracking-wider">Latest Update</span>
+                        <h1 class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">Building a Stronger, More Prosperous Nation Together</h1>
+                        <p class="mt-4 text-lg text-gray-200">Explore our latest initiatives, developmental manifestos, and vision blueprints driving national growth across every sector.</p>
+                        <div class="mt-8 flex space-x-4">
+                            <a href="#join" class="bg-white text-orange-600 font-bold px-6 py-3 rounded shadow hover:bg-gray-100 transition">Read Manifesto</a>
+                            <a href="#" class="border-2 border-white text-white font-bold px-6 py-3 rounded hover:bg-white/10 transition">Watch Live Speeches</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 flex items-center">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2070');"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
+                <div class="container mx-auto px-4 relative z-10 py-12">
+                    <div class="max-w-2xl">
+                        <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 uppercase rounded tracking-wider">Youth Empowerment</span>
+                        <h1 class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">Shaping the Visionary Leaders of Tomorrow</h1>
+                        <p class="mt-4 text-lg text-gray-200">Join our growing ecosystem of digital transformation drives running across local education sectors.</p>
+                        <div class="mt-8 flex space-x-4">
+                            <a href="#join" class="bg-blue-600 text-white font-bold px-6 py-3 rounded shadow hover:bg-blue-700 transition">Register As Volunteer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center z-20 transition shadow-md">
+            <i class="fa-solid fa-chevron-left text-lg"></i>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center z-20 transition shadow-md">
+            <i class="fa-solid fa-chevron-right text-lg"></i>
+        </button>
     </section>
 
-    <!-- 4. LATEST NEWS & UPDATES GRID -->
-    <main class="container mx-auto px-4 py-12">
+    <main id="media-center" class="container mx-auto px-4 py-12">
         <div class="flex justify-between items-end mb-8 border-b pb-4">
             <div>
                 <h2 class="text-3xl font-extrabold text-gray-900">Media Center</h2>
@@ -87,7 +104,6 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- News Card 1 -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col">
                 <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=500');"></div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
@@ -103,7 +119,6 @@
                 </div>
             </div>
 
-            <!-- News Card 2 -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col">
                 <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500');"></div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
@@ -118,44 +133,3 @@
                     </div>
                 </div>
             </div>
-
-            <!-- News Card 3 -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col">
-                <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=500');"></div>
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs font-bold text-green-600 uppercase tracking-wider block mb-2">Event</span>
-                        <h3 class="font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">Highlights from the Annual National Leadership Summit</h3>
-                        <p class="text-gray-600 text-sm mt-2 line-clamp-3">Key addresses centered on ecological sustainability, technological independence, and bolstering local manufacturing ecosystems.</p>
-                    </div>
-                    <div class="text-xs text-gray-400 font-medium mt-4 pt-4 border-t flex justify-between">
-                        <span>May 25, 2026</span>
-                        <span><i class="fa-solid fa-share-nodes"></i> Share</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 5. LEADERSHIP PROFILE SECTION -->
-    <section class="bg-gray-100 py-12">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Our Leadership</h2>
-            <p class="text-gray-600 max-w-xl mx-auto mb-10">The visionary thinkers and organizers steering our strategic initiatives on local and national fronts.</p>
-            
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- Leader Profile Card -->
-                <div class="bg-white p-6 rounded-xl shadow border border-gray-200 max-w-xs text-center">
-                    <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden border-4 border-orange-500">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Leader" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-lg text-gray-900">National President</h4>
-                    <p class="text-sm text-orange-600 font-semibold mb-3">Organizational Chief</p>
-                    <p class="text-xs text-gray-500">Responsible for setting core operational strategies and driving nationwide membership initiatives.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</body>
-</html>
