@@ -6,9 +6,16 @@
     <title>Organizational Portal Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth micro-interactions for the filtering animation */
+        .news-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
+    <!-- Top Utility Bar -->
     <div class="bg-orange-600 text-white text-sm py-2 px-4 flex justify-between items-center">
         <div class="flex space-x-4">
             <a href="#" class="hover:underline"><i class="fa-solid fa-language"></i> English / हिन्दी</a>
@@ -22,6 +29,7 @@
         </div>
     </div>
 
+    <!-- Main Navigation Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -50,9 +58,11 @@
         </div>
     </header>
 
+    <!-- Hero Image Carousel Section -->
     <section class="relative bg-slate-950 text-white h-[480px] overflow-hidden">
         <div id="slider-container" class="relative w-full h-full">
             
+            <!-- Slide 1 -->
             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 flex items-center">
                 <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=2070');"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
@@ -69,6 +79,7 @@
                 </div>
             </div>
 
+            <!-- Slide 2 -->
             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 flex items-center">
                 <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2070');"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent"></div>
@@ -86,6 +97,7 @@
 
         </div>
 
+        <!-- Carousel Slider Buttons -->
         <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center z-20 transition shadow-md">
             <i class="fa-solid fa-chevron-left text-lg"></i>
         </button>
@@ -94,22 +106,53 @@
         </button>
     </section>
 
+    <!-- Upgraded Media Center Section with Search & Filtering Hooks -->
     <main id="media-center" class="container mx-auto px-4 py-12">
-        <div class="flex justify-between items-end mb-8 border-b pb-4">
+        
+        <!-- Interactive Layout Header Element -->
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 border-b pb-6 gap-4">
             <div>
                 <h2 class="text-3xl font-extrabold text-gray-900">Media Center</h2>
                 <p class="text-gray-500 text-sm mt-1">Press releases, news updates, and official statements</p>
             </div>
-            <a href="#" class="text-orange-600 font-bold hover:underline text-sm flex items-center">View All <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            
+            <!-- Real-time Live Search Input Bar Context -->
+            <div class="relative w-full md:w-80">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="newsSearch" oninput="filterNews()" 
+                       class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm bg-white" 
+                       placeholder="Search articles or keywords...">
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col">
+        <!-- Filter Navigation Pills Grid Row -->
+        <div class="flex flex-wrap gap-2 mb-8" id="filter-button-group">
+            <button onclick="setActiveCategory('all', this)" class="category-btn px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-orange-600 text-white shadow-sm">
+                All Updates
+            </button>
+            <button onclick="setActiveCategory('press-release', this)" class="category-btn px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-gray-200 text-gray-700 hover:bg-gray-300">
+                Press Releases
+            </button>
+            <button onclick="setActiveCategory('campaign', this)" class="category-btn px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-gray-200 text-gray-700 hover:bg-gray-300">
+                Campaign Updates
+            </button>
+            <button onclick="setActiveCategory('event', this)" class="category-btn px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition bg-gray-200 text-gray-700 hover:bg-gray-300">
+                Events
+            </button>
+        </div>
+
+        <!-- Live Content Cards Grid System -->
+        <div class="grid md:grid-cols-3 gap-8 transition-all duration-300" id="newsGrid">
+            
+            <!-- News Card 1: Press Release -->
+            <div class="news-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl flex flex-col transform opacity-100 scale-100" data-category="press-release">
                 <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=500');"></div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
                         <span class="text-xs font-bold text-orange-600 uppercase tracking-wider block mb-2">Press Release</span>
-                        <h3 class="font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">National Committee outlines major economic reforms for rural sectors</h3>
+                        <h3 class="card-title font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">National Committee outlines major economic reforms for rural sectors</h3>
                         <p class="text-gray-600 text-sm mt-2 line-clamp-3">The new policy framework focuses heavily on digital integration, direct-benefit subsidies, and infrastructure expansion across village clusters.</p>
                     </div>
                     <div class="text-xs text-gray-400 font-medium mt-4 pt-4 border-t flex justify-between">
@@ -119,12 +162,13 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col">
+            <!-- News Card 2: Campaign Update -->
+            <div class="news-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl flex flex-col transform opacity-100 scale-100" data-category="campaign">
                 <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500');"></div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
                         <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-2">Campaign Update</span>
-                        <h3 class="font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">Launch of nationwide digital literacy drive for youth groups</h3>
+                        <h3 class="card-title font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">Launch of nationwide digital literacy drive for youth groups</h3>
                         <p class="text-gray-600 text-sm mt-2 line-clamp-3">Over 500 new training centers are set to open by next quarter, offering free basic certifications in computing and basic programming logic.</p>
                     </div>
                     <div class="text-xs text-gray-400 font-medium mt-4 pt-4 border-t flex justify-between">
@@ -133,3 +177,127 @@
                     </div>
                 </div>
             </div>
+
+            <!-- News Card 3: Event (Added to showcase different categories) -->
+            <div class="news-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl flex flex-col transform opacity-100 scale-100" data-category="event">
+                <div class="h-48 bg-gray-300 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=500');"></div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-wider block mb-2">Event</span>
+                        <h3 class="card-title font-bold text-xl text-gray-900 line-clamp-2 hover:text-orange-600 cursor-pointer">Highlights from the Annual National Leadership Summit</h3>
+                        <p class="text-gray-600 text-sm mt-2 line-clamp-3">Key addresses centered on ecological sustainability, technological independence, and bolstering local manufacturing ecosystems.</p>
+                    </div>
+                    <div class="text-xs text-gray-400 font-medium mt-4 pt-4 border-t flex justify-between">
+                        <span>May 25, 2026</span>
+                        <span><i class="fa-solid fa-share-nodes"></i> Share</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fallback Empty State Message Layout Component -->
+        <div id="noResults" class="hidden text-center py-16 text-gray-500">
+            <i class="fa-solid fa-folder-open text-5xl mb-4 text-gray-300 block"></i>
+            <h3 class="text-lg font-bold text-gray-700">No updates found</h3>
+            <p class="text-sm text-gray-400 mt-1">We couldn't find anything matching your filters or search keywords.</p>
+        </div>
+    </main>
+
+    <!-- JavaScript Logic Engines (Slider + Live Search Filters) -->
+    <script>
+        // --- SECTION A: HERO SLIDER ENGINE ---
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.remove('opacity-100', 'z-10');
+                slide.classList.add('opacity-0', 'z-0');
+            });
+            slides[index].classList.remove('opacity-0', 'z-0');
+            slides[index].classList.add('opacity-100', 'z-10');
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance slides every 6 seconds
+        setInterval(nextSlide, 6000);
+
+
+        // --- SECTION B: LIVE SEARCH & DATA FILTER ENGINE ---
+        let selectedCategory = 'all';
+
+        function setActiveCategory(category, buttonElement) {
+            selectedCategory = category;
+            
+            // Revert all filter action buttons back to default look
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-orange-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            // Brighten active button
+            buttonElement.classList.remove('bg-gray-200', 'text-gray-700');
+            buttonElement.classList.add('bg-orange-600', 'text-white', 'shadow-sm');
+
+            // Trigger structural sync
+            filterNews();
+        }
+
+        function filterNews() {
+            const searchQuery = document.getElementById('newsSearch').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.news-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const headlineText = card.querySelector('.card-title').innerText.toLowerCase();
+                const paragraphText = card.querySelector('p').innerText.toLowerCase();
+
+                // Multi-parameter conditions mapping check
+                const matchesCategory = (selectedCategory === 'all' || cardCategory === selectedCategory);
+                const matchesSearch = (headlineText.includes(searchQuery) || paragraphText.includes(searchQuery));
+
+                if (matchesCategory && matchesSearch) {
+                    // Make the card visible instantly to measure layout structure
+                    card.style.display = 'flex';
+                    // Trigger dynamic styling attributes asynchronously to support animations
+                    setTimeout(() => {
+                        card.classList.remove('opacity-0', 'scale-95');
+                        card.classList.add('opacity-100', 'scale-100');
+                    }, 20);
+                    visibleCount++;
+                } else {
+                    // Trigger fade and scale down reduction transition properties
+                    card.classList.remove('opacity-100', 'scale-100');
+                    card.classList.add('opacity-0', 'scale-95');
+                    
+                    // Delay actual CSS element removal until visual transitions conclude
+                    setTimeout(() => {
+                        if (card.classList.contains('opacity-0')) {
+                            card.style.display = 'none';
+                        }
+                    }, 400);
+                }
+            });
+
+            // Monitor matches to toggle custom zero-result messaging layouts
+            const noResultsMsg = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResultsMsg.classList.remove('hidden');
+            } else {
+                noResultsMsg.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
