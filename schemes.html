@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPRDF - Official Development Schemes & Yojnas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: #f4f7f6; color: #2c3e50; padding-bottom: 60px; }
+        
+        /* Matching Your Party Header Branding */
+        header { background: #ffffff; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        .logo { font-size: 28px; font-weight: 800; color: #0056b3; text-decoration: none; }
+        .logo span { color: #ffcc00; }
+        .back-home { color: #0056b3; font-weight: 700; text-decoration: none; border: 2px solid #0056b3; padding: 8px 20px; border-radius: 20px; transition: 0.3s; }
+        .back-home:hover { background: #0056b3; color: white; }
+
+        /* Page Banner */
+        .page-title-banner { background: #002244; color: white; padding: 60px 8%; text-align: center; border-bottom: 6px solid #ffcc00; }
+        .page-title-banner h1 { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+        .page-title-banner p { color: #ffcc00; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Schemes Grid System */
+        .schemes-container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .schemes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        /* Individual Scheme Card Layout */
+        .scheme-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); overflow: hidden; border-top: 4px solid #0056b3; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+        .scheme-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .scheme-content { padding: 30px; }
+        .scheme-tag { display: inline-block; background: #e1effe; color: #03543f; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; }
+        .scheme-card h3 { color: #002244; font-size: 22px; margin-bottom: 12px; font-weight: 700; }
+        .scheme-card p { color: #4a5568; font-size: 15px; line-height: 1.6; text-align: justify; margin-bottom: 15px; }
+        
+        /* Benefit Bullet Points */
+        .benefits-list { list-style: none; margin-bottom: 20px; }
+        .benefits-list li { font-size: 14.5px; color: #2d3748; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .benefits-list li::before { content: "🔹"; font-size: 12px; }
+
+        /* Redirect Action Button */
+        .scheme-btn { display: block; text-align: center; background: #f8fafc; color: #0056b3; padding: 15px; font-weight: 700; text-decoration: none; border-top: 1px solid #edf2f7; transition: 0.3s; }
+        .scheme-btn:hover { background: #0056b3; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header>
+        <a href="index.html" class="logo">OPRDF<span>.</span></a>
+        <a href="index.html" class="back-home">← Back to Main Platform</a>
+    </header>
+
+    <!-- Scheme Central Hub Title -->
+    <div class="page-title-banner">
+        <h1>Public Welfare Schemes & Yojnas</h1>
+        <p>Strategic Development Initiatives by OPRDF</p>
+    </div>
+
+    <!-- Live Schemes Dashboard Matrix -->
+    <div class="schemes-container">
+        <div class="schemes-grid">
+
+            <!-- YOJNA 1: YOUTH EMPLOYMENT -->
+            <div class="scheme-card">
+                <div class="scheme-content">
+                    <span class="scheme-tag" style="background: #e1effe; color: #1e429f;">Employment</span>
+                    <h3>Oggy Yuva Vikas Yojna (OYVY)</h3>
+                    <p>A direct, industry-linked training and stipend initiative designed to bridge the gap between technical education and guaranteed corporate placement.</p>
+                    <ul class="benefits-list">
+                        <li><strong>Monthly Stipend:</strong> ₹8,000 during training phase.</li>
+                        <li><strong>Skill Alignment:</strong> Core IT, advanced manufacturing, or green tech.</li>
+                        <li><strong>Direct Benefit:</strong> Assured 100% placement upon certification.</li>
+                    </ul>
+                </div>
+                <a href="#" class="scheme-btn">Check Eligibility & Apply →</a>
+            </div>
+
+            <!-- YOJNA 2: HEALTHCARE -->
+            <div class="scheme-card" style="border-top-color: #ffcc00;">
+                <div class="scheme-content">
+                    <span class="scheme-tag" style="background: #def7ec; color: #03543f;">Healthcare</span>
+                    <h3>Universal Suraksha Health Card</h3>
+                    <p>A sovereign health coverage mandate enabling completely cashless tertiary medical treatments and diagnostics at any district center.</p>
+                    <ul class="benefits-list">
+                        <li><strong>Coverage Capital:</strong> Up to ₹5 Lakhs per family annually.</li>
+                        <li><strong>Zero Cost Diagnostics:</strong> Free MRI, CT scans, and lab testing.</li>
+                        <li><strong>Medicines:</strong> 100% subsidized essential pharmacy access.</li>
+                    </ul>
+                </div>
+                <a href="#" class="scheme-btn">Locate Empaneled Hospitals →</a>
+            </div>
+
+            <!-- PLACEHOLDER YOJNA 3: FUTURE EXPANSION -->
+            <div class="scheme-card" style="border-top-color: #2c3e50;">
+                <div class="scheme-content">
+                    <span class="scheme-tag" style="background: #fef08a; color: #713f12;">Upcoming Initiative</span>
+                    <h3>Eco-Capitalism Green Subsidy</h3>
+                    <p>Our upcoming strategic plan designed to incentivize localized micro-businesses to transition over to standard carbon-neutral infrastructure operations.</p>
+                    <ul class="benefits-list">
+                        <li><strong>Solar Transition:</strong> 60% direct installation grants.</li>
+                        <li><strong>Waste Setup:</strong> Zero municipal fee windows for recyclers.</li>
+                    </ul>
+                </div>
+                <a href="#" class="scheme-btn" style="color: #713f12; cursor: not-allowed;">Scheme Launching Soon...</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
